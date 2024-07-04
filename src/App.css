@@ -1,0 +1,59 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+body {
+  background-color: #e3f4fc;
+}
+
+.input-side {
+  background-color: white;
+  width: 50%;
+  padding: 2%;
+}
+
+.results-side {
+  background-color: #133040;
+  color: #7895a5;
+  width: 50%;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.main {
+  display: flex;
+}
+
+.term-interest {
+  display: flex;
+  justify-content: space-between;
+}
+
+.type-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.moretgage-type-section > button {
+  border: #133040;
+}
+
+.subtitle-left {
+  display: flex;
+  justify-content: space-around
+}
+
+
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
