@@ -6,6 +6,7 @@ function App() {
   const [term, setTerm] = useState(0)
   const [interestRate, setInterestRate] = useState(0)
   const [type, setType] = useState(null)
+  const [formComplete, setFormComplete] = useState(false)
 
   return (
     <>
@@ -17,17 +18,32 @@ function App() {
               <p>Clear All</p>
             </div>
 
-            <p>Mortgage Amount</p>
-            <input onChange={(e) => setAmount(e.target.value)} name="amount"></input>
+            <div className="input-group">
+              <p>Mortgage Amount</p>
+              <div className="input-with-label">
+                <span className='label'>$</span>
+                <input onChange={(e) => setAmount(e.target.value)} name="amount"></input>
+              </div>
+
+            </div>
 
             <section className="term-interest">
-              <div className="term">
+
+              <div className="input-group">
                 <p>Mortgage Term</p>
-                <input onChange={(e) => setTerm(e.target.value)} />
+                <div className="input-with-label">
+                  <input onChange={(e) => setTerm(e.target.value)} />
+                  <span className="label">years</span>
+                </div>
               </div>
-              <div className="interest">
+
+              <div className="input-group">
                 <p>Interest Rate</p>
-                <input onChange={(e) => setInterestRate(e.target.value)} />
+                <div className="input-with-label">
+                  <input onChange={(e) => setInterestRate(e.target.value)} />
+                  <span className='label'>%</span>
+
+                </div>
               </div>
             </section>
 
@@ -40,14 +56,26 @@ function App() {
               <div className="button">
                 <input type="checkbox" name="interest" value={"Interest Only"} onChange={(e) => setType(e.target.value)} />
                 <label for="interest">Interest Only</label>
+
               </div>
+              <button className='calculate-button'> <img src="/images/icon-calculator.svg" /> Calculate Repayments</button>
             </div>
 
           </div>
         </div>
         <div className="results-side">
-          <h3 style={{ color: "white" }}>Your Results</h3>
-          <p>Your results are shown below based on the information you provided. To adjust the results, edit the form and click “calculate repayments” again.</p>
+          {formComplete ? (
+            <>
+              <h3 style={{ color: "white" }}>Your Results</h3>
+              <p>Your results are shown below based on the information you provided. To adjust the results, edit the form and click “calculate repayments” again.</p></>
+          ) : (
+            <div className='incomplete'>
+              <img src="/images/illustration-empty.svg" alt="calculator" />
+              <h3 style={{ color: "white" }}>Results shown here</h3>
+              <p>Complete the form and click "calculate repayments" to see what your monthly repayments would be.</p>
+            </div>
+          )}
+
         </div>
       </div>
     </>
