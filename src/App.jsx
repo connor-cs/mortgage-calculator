@@ -7,7 +7,7 @@ function App() {
   const [interestRate, setInterestRate] = useState(0)
   const [type, setType] = useState(null)
   const [formComplete, setFormComplete] = useState(false)
-
+///
   return (
     <>
       <div className='main'>
@@ -46,7 +46,6 @@ function App() {
                 </div>
               </div>
             </section>
-
             <div className="mortgage-type-section">
               <p>Mortgage Type</p>
               <div className="button">
