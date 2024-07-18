@@ -7,7 +7,7 @@ function App() {
   const [interestRate, setInterestRate] = useState(0)
   const [type, setType] = useState(null)
   const [formComplete, setFormComplete] = useState(false)
-///
+
   return (
     <>
       <div className='main'>
@@ -16,7 +16,7 @@ function App() {
             <div className="subtitle-left">
               <h3>Mortgage Calculator</h3>
               <p>Clear All</p>
-            </div>
+            </div> 
 
             <div className="input-group">
               <p>Mortgage Amount</p>
