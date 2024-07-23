@@ -1,6 +1,14 @@
 # Frontend Mentor - Mortgage repayment calculator
 
-![Design preview for the Mortgage repayment calculator coding challenge](./preview.jpg)
+M = P [ I(1 + I)N ] / [ (1 + I)N − 1]
+
+
+This formula will help you calculate your mortgage payment based on the loan principal and interest before taxes, homeowners insurance and HOA fees. If it looks a little intimidating, though, you’re probably not alone – let’s break it down variable by variable so it’s easier to understand:
+
+M = Monthly payment: This is what you’re solving for.
+P = Principal amount: This is the loan balance, or what you’re trying to pay off.
+I = Interest rate: Remember, you’ll want to use the base interest rate and not the APR. Additionally, because the mortgage interest rate you’re charged is an annual interest rate that represents the interest that’s supposed to be paid over the whole year, you want to divide this by 12 to get the monthly interest rate.
+N = Number of payments: This is the total number of payments in your loan term. For instance, if it’s a 30-year mortgage with monthly payments, there are 360 payments.
 
 ## Welcome! 👋
 

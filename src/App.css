@@ -9,6 +9,19 @@ body {
   background-color: #e3f4fc;
 }
 
+.clear {
+  cursor: pointer;
+}
+
+.dollar-label {
+  background: #e3f4fc;
+  padding: 8px 10px;
+  /* border: 1px solid #ccc; */
+  border-radius: 5px 0px 0px 5px;
+  border-right: none;
+  border-left: none;
+}
+
 .calculate-button {
   background: #d9db30;
   padding: 10px 20px;
@@ -34,35 +47,29 @@ body {
   align-items: center;
   border: 1px solid #ccc;
   margin-top: 0;
+  border-radius: 5px;
 }
 
 .input-with-label input {
-  border-left: none;
-  border: 1px solid #ccc;
+  outline: none;
+  border: none;
+  /* border: 1px solid #ccc; */
   width: 100%;
   
-}
-
-.label {
-  background: #f0f0f0;
-  padding: 0 10px;
-  border: 1px solid #ccc;
-  border-right: none;
 }
 
 .incomplete {
   color: #7895a5;
 }
 
-.results-side {
-  background-color: #133040;
-  color: #7895a5;
-  width: 50%;
-  border-radius: 0px 10px 10px 60px;
-}
 
 .label {
-  background-color: #e3f4fc;
+  background: #e3f4fc;
+  padding: 8px 10px;
+  /* border: 1px solid #ccc; */
+  border-radius: 0px 5px 5px 0px;
+  border-right: none;
+  border-left: none;
 }
 
 .left {
@@ -72,6 +79,13 @@ body {
 }
 .main {
   display: flex;
+}
+
+.results-side {
+  background-color: #133040;
+  color: #7895a5;
+  width: 50%;
+  border-radius: 0px 10px 10px 60px;
 }
 
 .term-interest {

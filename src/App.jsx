@@ -15,16 +15,15 @@ function App() {
           <div className="left">
             <div className="subtitle-left">
               <h3>Mortgage Calculator</h3>
-              <p>Clear All</p>
+              <p className='clear'>Clear All</p>
             </div> 
 
             <div className="input-group">
               <p>Mortgage Amount</p>
               <div className="input-with-label">
-                <span className='label'>$</span>
+                <span className='dollar-label'>$</span>
                 <input onChange={(e) => setAmount(e.target.value)} name="amount"></input>
               </div>
-
             </div>
 
             <section className="term-interest">
@@ -46,6 +45,7 @@ function App() {
                 </div>
               </div>
             </section>
+
             <div className="mortgage-type-section">
               <p>Mortgage Type</p>
               <div className="button">
@@ -55,7 +55,6 @@ function App() {
               <div className="button">
                 <input type="checkbox" name="interest" value={"Interest Only"} onChange={(e) => setType(e.target.value)} />
                 <label for="interest">Interest Only</label>
-
               </div>
               <button className='calculate-button'> <img src="/images/icon-calculator.svg" /> Calculate Repayments</button>
             </div>
