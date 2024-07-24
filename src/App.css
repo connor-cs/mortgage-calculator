@@ -9,6 +9,8 @@ body {
   background-color: #e3f4fc;
 }
 
+
+
 .clear {
   cursor: pointer;
 }
@@ -20,6 +22,8 @@ body {
   border-radius: 5px 0px 0px 5px;
   border-right: none;
   border-left: none;
+  font-weight: bold;
+  color: #49636f;
 }
 
 .calculate-button {
@@ -28,6 +32,7 @@ body {
   border: none;
   border-radius: 20px;
   cursor: pointer;
+  margin-top: 1rem;
 }
 
 .input-side {
@@ -36,6 +41,10 @@ body {
   padding: 2%;
   padding: 20px;
   border-radius: 10px 0px 10px 10px;
+}
+
+#int-only {
+  margin-top: 1rem;
 }
 
 .input-group {
@@ -55,7 +64,7 @@ body {
   border: none;
   /* border: 1px solid #ccc; */
   width: 100%;
-  
+
 }
 
 .incomplete {
@@ -70,6 +79,8 @@ body {
   border-radius: 0px 5px 5px 0px;
   border-right: none;
   border-left: none;
+  font-weight: bold;
+  color: #49636f;
 }
 
 .left {
@@ -77,8 +88,26 @@ body {
   flex-direction: column;
   justify-content: flex-start;
 }
+
 .main {
   display: flex;
+}
+
+.mortgage-type-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: start;
+}
+
+.radio-button {
+  font-weight: bold;
+  color: #133040;
+  border: 1px solid black;
+  display: flex;
+  justify-content: flex-start;
+  padding: .5rem;
+  width: 60%;
 }
 
 .results-side {
@@ -98,7 +127,7 @@ body {
   flex-direction: column;
 }
 
-.moretgage-type-section > button {
+.moretgage-type-section>button {
   border: #133040;
 }
 
@@ -114,4 +143,3 @@ body {
     animation: logo-spin infinite 20s linear;
   }
 }
-

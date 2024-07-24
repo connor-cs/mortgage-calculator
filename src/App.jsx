@@ -48,12 +48,12 @@ function App() {
 
             <div className="mortgage-type-section">
               <p>Mortgage Type</p>
-              <div className="button">
-                <input type="checkbox" name="repayment" value={"Repayment"} onChange={(e) => console.log(e.target.value)} />
+              <div className="radio-button">
+                <input type="radio" name="mortgage-type" value={"Repayment"} onChange={(e) => console.log(e.target.value)} />
                 <label for="repayment">Repayment</label>
               </div>
-              <div className="button">
-                <input type="checkbox" name="interest" value={"Interest Only"} onChange={(e) => setType(e.target.value)} />
+              <div className="radio-button" id='int-only'>
+                <input type="radio" name="mortgage-type" value={"Interest Only"} onChange={(e) => setType(e.target.value)} />
                 <label for="interest">Interest Only</label>
               </div>
               <button className='calculate-button'> <img src="/images/icon-calculator.svg" /> Calculate Repayments</button>
