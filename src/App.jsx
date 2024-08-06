@@ -7,6 +7,16 @@ function App() {
   const [interestRate, setInterestRate] = useState(0)
   const [type, setType] = useState(null)
   const [formComplete, setFormComplete] = useState(false)
+  const [active, setActive] = useState(false)
+
+  function clearAll() {
+    setType(null)
+    setAmount(null)
+    setTerm(null)
+    setInterestRate(null)
+    setActive(false)
+    setFormComplete(false)
+  }
 
   return (
     <>
@@ -15,8 +25,8 @@ function App() {
           <div className="left">
             <div className="subtitle-left">
               <h3>Mortgage Calculator</h3>
-              <p className='clear'>Clear All</p>
-            </div> 
+              <p className='clear' onClick={() => clearAll()}>Clear All</p>
+            </div>
 
             <div className="input-group">
               <p>Mortgage Amount</p>
@@ -48,11 +58,11 @@ function App() {
 
             <div className="mortgage-type-section">
               <p>Mortgage Type</p>
-              <div className="radio-button">
-                <input type="radio" name="mortgage-type" value={"Repayment"} onChange={(e) => console.log(e.target.value)} />
+              <div className={`radio-button ${type == "Repayment" ? 'selected' : ''}`} onClick={() => setType('Repayment')}>
+                <input type="radio" name="mortgage-type" value={"Repayment"} onChange={(e) => setType(e.target.value)} />
                 <label for="repayment">Repayment</label>
               </div>
-              <div className="radio-button" id='int-only'>
+              <div className={`radio-button ${type == 'Interest Only' ? 'selected' : ''}`} onClick={() => setType('Interest Only')} id='int-only' >
                 <input type="radio" name="mortgage-type" value={"Interest Only"} onChange={(e) => setType(e.target.value)} />
                 <label for="interest">Interest Only</label>
               </div>

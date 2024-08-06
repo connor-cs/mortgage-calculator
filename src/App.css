@@ -6,17 +6,20 @@
 }
 
 @font-face{
-  font-family: PlusJakartaSans; d
+  font-family: "PlusJakartaSans";
+  src: url(src/assets/fonts/PlusJakartaSans-VariableFont_wght.ttf)
 }
 
 body {
   background-color: #e3f4fc;
+  font-family: PlusJakartaSans;
 }
 
 
 
 .clear {
   cursor: pointer;
+  text-decoration: underline grey;
 }
 
 .dollar-label {
@@ -108,10 +111,22 @@ body {
   font-weight: bold;
   color: #133040;
   border: 1px solid black;
+  border-radius: 5px;
   display: flex;
   justify-content: flex-start;
   padding: .5rem;
   width: 60%;
+  cursor: pointer;
+  accent-color: hsl(61, 70%, 52%);
+}
+
+.radio-button > label {
+  cursor: pointer;
+}
+
+.radio-button.selected {
+  background-color: #fafae0;
+  border-color: hsl(61, 70%, 52%);
 }
 
 .results-side {
