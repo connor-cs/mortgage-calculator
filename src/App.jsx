@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
-  const [amount, setAmount] = useState(0)
+  const [principalAmount, setPrincipalAmount] = useState(0)
   const [years, setYears] = useState(0)
   const [interestRate, setInterestRate] = useState(0)
   const [type, setType] = useState(null)
@@ -11,28 +11,42 @@ function App() {
   const [monthlyRepayment, setMonthlyRepayment] = useState(null);
   const [totalRepayment, setTotalRepayment] = useState(null);
 
-  function clearAll() {
-    setType(null)
-    setAmount(null)
-    setTerm(null)
+  const clearAll = () => {
+    setType('')
+    setAmount('')
+    setTerm('')
     setInterestRate(null)
     setActive(false)
     setFormComplete(false)
   }
 
   const calculatePayment = () => {
-    const P = parseFloat(amount.replace(/,/g, '')) //remove comma
+    const P = parseFloat(principalAmount.replace(/,/g, '')) //remove comma
     const r = parseFloat(interestRate) / 100 / 12 //anual to monthly interest rate
-    const n = parseFloat(term) * 12; //term in years to months
+    const n = parseFloat(years) * 12; //term in years to months
 
     if (isNaN(P) || isNaN(r) || isNaN(n)) {
       alert('Invalid values')
       return
     }
+    let M
+    if (type == 'Repayment') {
+      M = monthlyPayment(P, r, n)
+    } else if (type == 'Interest Only') {
+      M = interestOnly(r, P)
+    } else {
+      alert('Select a mortgage type')
+    }
 
-    const M = monthlyPayment(P, r, n)
     setMonthlyRepayment(M.toFixed(2))
     setTotalRepayment((M * n).toFixed(2))
+    setFormComplete(true)
+    console.log({ totalRepayment })
+    console.log({ monthlyRepayment })
+  }
+
+  const interestOnly = (monthlyInterestRate, principalAmount) => {
+    return principalAmount * monthlyInterestRate
   }
 
   const monthlyPayment = (principal, monthlyInterestRate, years) => {
@@ -58,7 +72,7 @@ function App() {
               <p>Mortgage Amount</p>
               <div className="input-with-label">
                 <span className='dollar-label'>$</span>
-                <input onChange={(e) => setAmount(e.target.value)} name="amount"></input>
+                <input onChange={(e) => setPrincipalAmount(e.target.value)} name="amount"></input>
               </div>
             </div>
 
@@ -92,16 +106,27 @@ function App() {
                 <input type="radio" name="mortgage-type" value={"Interest Only"} onChange={(e) => setType(e.target.value)} />
                 <label for="interest">Interest Only</label>
               </div>
-              <button className='calculate-button'> <img src="/images/icon-calculator.svg" /> Calculate Repayments</button>
+              <button className='calculate-button' onClick={() => calculatePayment()}> <img src="/images/icon-calculator.svg" /> Calculate Repayments</button>
             </div>
 
           </div>
         </div>
         <div className="results-side">
-          {formComplete ? (
-            <>
+          {formComplete && (monthlyRepayment != null || totalRepayment != null) ? (
+            <div className='final-results'>
               <h3 style={{ color: "white" }}>Your Results</h3>
-              <p>Your results are shown below based on the information you provided. To adjust the results, edit the form and click “calculate repayments” again.</p></>
+              <p>Your results are shown below based on the information you provided. To adjust the results, edit the form and click “calculate repayments” again.</p>
+              <div className="repayments">
+                <div className="repayments-top">
+                  <p>Your monthly repayments</p>
+                  <p className='monthly'>${monthlyRepayment}</p>
+                </div>
+                <div className="repayments-bottom">
+                  <p>Total you'll repay over the term</p>
+                  <p className='total'>${totalRepayment}</p>
+                </div>
+              </div>
+            </div>
           ) : (
             <div className='incomplete'>
               <img src="/images/illustration-empty.svg" alt="calculator" />

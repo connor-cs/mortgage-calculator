@@ -100,6 +100,12 @@ body {
   display: flex;
 }
 
+.monthly {
+  color: hsl(61, 70%, 52%);
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
 .mortgage-type-section {
   display: flex;
   flex-direction: column;
@@ -136,9 +142,19 @@ body {
   border-radius: 0px 10px 10px 60px;
 }
 
+.repayments{
+  background-color: #0e2431;
+}
+
 .term-interest {
   display: flex;
   justify-content: left;
+}
+
+.total {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
 .type-section {
