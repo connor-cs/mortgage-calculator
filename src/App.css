@@ -138,7 +138,7 @@ body {
 
 .term-interest {
   display: flex;
-  justify-content: space-between;
+  justify-content: left;
 }
 
 .type-section {

@@ -3,11 +3,13 @@ import './App.css'
 
 function App() {
   const [amount, setAmount] = useState(0)
-  const [term, setTerm] = useState(0)
+  const [years, setYears] = useState(0)
   const [interestRate, setInterestRate] = useState(0)
   const [type, setType] = useState(null)
   const [formComplete, setFormComplete] = useState(false)
   const [active, setActive] = useState(false)
+  const [monthlyRepayment, setMonthlyRepayment] = useState(null);
+  const [totalRepayment, setTotalRepayment] = useState(null);
 
   function clearAll() {
     setType(null)
@@ -17,6 +19,30 @@ function App() {
     setActive(false)
     setFormComplete(false)
   }
+
+  const calculatePayment = () => {
+    const P = parseFloat(amount.replace(/,/g, '')) //remove comma
+    const r = parseFloat(interestRate) / 100 / 12 //anual to monthly interest rate
+    const n = parseFloat(term) * 12; //term in years to months
+
+    if (isNaN(P) || isNaN(r) || isNaN(n)) {
+      alert('Invalid values')
+      return
+    }
+
+    const M = monthlyPayment(P, r, n)
+    setMonthlyRepayment(M.toFixed(2))
+    setTotalRepayment((M * n).toFixed(2))
+  }
+
+  const monthlyPayment = (principal, monthlyInterestRate, years) => {
+    const months = years * 12
+    return principal * (
+      (monthlyInterestRate * Math.pow((1 + monthlyInterestRate), months)) /
+      (Math.pow((1 + monthlyInterestRate), months) - 1)
+    );
+  }
+
 
   return (
     <>
@@ -41,7 +67,7 @@ function App() {
               <div className="input-group">
                 <p>Mortgage Term</p>
                 <div className="input-with-label">
-                  <input onChange={(e) => setTerm(e.target.value)} />
+                  <input onChange={(e) => setYears(e.target.value)} />
                   <span className="label">years</span>
                 </div>
               </div>
