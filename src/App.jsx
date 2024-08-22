@@ -100,11 +100,11 @@ function App() {
               <p>Mortgage Type</p>
               <div className={`radio-button ${type == "Repayment" ? 'selected' : ''}`} onClick={() => setType('Repayment')}>
                 <input type="radio" name="mortgage-type" value={"Repayment"} onChange={(e) => setType(e.target.value)} />
-                <label for="repayment">Repayment</label>
+                <label htmlFor="repayment">Repayment</label>
               </div>
               <div className={`radio-button ${type == 'Interest Only' ? 'selected' : ''}`} onClick={() => setType('Interest Only')} id='int-only' >
                 <input type="radio" name="mortgage-type" value={"Interest Only"} onChange={(e) => setType(e.target.value)} />
-                <label for="interest">Interest Only</label>
+                <label htmlFor="interest">Interest Only</label>
               </div>
               <button className='calculate-button' onClick={() => calculatePayment()}> <img src="/images/icon-calculator.svg" /> Calculate Repayments</button>
             </div>

@@ -40,14 +40,27 @@ body {
   border-radius: 20px;
   cursor: pointer;
   margin-top: 1rem;
+  display: flex;
+  align-items: center;
 }
 
 .input-side {
+  position: relative;
   background-color: white;
-  width: 50%;
+  width: 40%;
   padding: 2%;
   padding: 20px;
   border-radius: 10px 0px 10px 10px;
+}
+
+.input-side::after {
+  content: '';
+  position: absolute;
+  background-color: white;
+  bottom: 0;
+  right: -50px;
+  width: 100px;
+  height: 50px;
 }
 
 #int-only {
@@ -67,12 +80,13 @@ body {
   border: 1px solid #ccc;
   margin-top: 0;
   border-radius: 5px;
+  width: 70%
 }
 
 .input-with-label input {
   outline: none;
   border: none;
-  /* border: 1px solid #ccc; */
+  margin-left: 1rem;
   width: 100%;
 
 }
@@ -139,9 +153,11 @@ body {
 }
 
 .results-side {
+  text-align: center;
+  position: relative;
   background-color: #133040;
   color: #7895a5;
-  width: 50%;
+  width: 40%;
   border-radius: 0px 10px 10px 60px;
 }
 
@@ -151,7 +167,6 @@ body {
 
 .term-interest {
   display: flex;
-  
   gap: 16px;
 }
 
@@ -166,7 +181,7 @@ body {
   flex-direction: column;
 }
 
-.moretgage-type-section>button {
+.mortgage-type-section>button {
   border: #133040;
 }
 
