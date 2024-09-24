@@ -2,9 +2,9 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
-  const [principalAmount, setPrincipalAmount] = useState(0)
-  const [years, setYears] = useState(0)
-  const [interestRate, setInterestRate] = useState(0)
+  const [principalAmount, setPrincipalAmount] = useState('')
+  const [years, setYears] = useState('')
+  const [interestRate, setInterestRate] = useState(null)
   const [type, setType] = useState(null)
   const [formComplete, setFormComplete] = useState(false)
   const [active, setActive] = useState(false)
@@ -12,10 +12,10 @@ function App() {
   const [totalRepayment, setTotalRepayment] = useState(null);
 
   const clearAll = () => {
-    setType('')
-    setAmount('')
-    setTerm('')
-    setInterestRate(null)
+    setType(null)
+    setPrincipalAmount('')
+    setYears('')
+    setInterestRate('')
     setActive(false)
     setFormComplete(false)
   }
@@ -72,7 +72,11 @@ function App() {
               <p>Mortgage Amount</p>
               <div className="input-with-label">
                 <span className='dollar-label'>$</span>
-                <input onChange={(e) => setPrincipalAmount(e.target.value)} name="amount"></input>
+                <input
+                  onChange={(e) => setPrincipalAmount(e.target.value)}
+                  name="amount"
+                  value={principalAmount}
+                  type="number"></input>
               </div>
             </div>
 
@@ -81,7 +85,9 @@ function App() {
               <div className="input-group">
                 <p>Mortgage Term</p>
                 <div className="input-with-label">
-                  <input onChange={(e) => setYears(e.target.value)} />
+                  <input
+                    onChange={(e) => setYears(e.target.value)}
+                    value={years} />
                   <span className="label">years</span>
                 </div>
               </div>
@@ -89,7 +95,9 @@ function App() {
               <div className="input-group">
                 <p>Interest Rate</p>
                 <div className="input-with-label">
-                  <input onChange={(e) => setInterestRate(e.target.value)} />
+                  <input
+                    onChange={(e) => setInterestRate(e.target.value)}
+                    value={interestRate} />
                   <span className='label'>%</span>
 
                 </div>
